@@ -42,7 +42,6 @@
 	$diasetmana=date("w",mktime(0,0,0,$month,1,$year))+7;
 	# ULTIM DIA DEL MES
 	$ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
- 
 	$meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL", "AGOST", "SETEMBRE", "OCTUBRE", "NOVEMBRE", "DECEMBRE");
 	?>
 
