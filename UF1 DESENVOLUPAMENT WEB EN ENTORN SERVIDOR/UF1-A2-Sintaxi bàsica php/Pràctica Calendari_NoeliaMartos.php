@@ -51,21 +51,18 @@
 		<th>DILLUNS</th><th>DIMARTS</th><th>DIMECRES</th><th>DIJOUS</th>
 		<th>DIVENDRES</th><th>DISSABTE</th><th>DIUMENGE</th>
 	</tr>
-	<tr bgcolor="#000000">
+	<tr>
 		<?php
-		$last_cell=$diasetmana+$ultimdiames;
-
-		for($i=1;$i<=42;$i++)
-		{
-			if($i==$diasetmana)
-			{
+		$ultimacelda=$diasetmana+$ultimdiames;
+		for($i=1;$i<=42;$i++){
+			if($i==$diasetmana){
 				// DIA EN QUE COMEÇA LA SETMANA
 				$day=1;
 			}
-			if($i<$diasetmana || $i>=$last_cell)
-			{
+			if($i<$diasetmana || $i>=$ultimacelda){
 				echo "<td>&nbsp;</td>";
-			}else{
+			}
+			else{
 				// DIA ACTUAL EN EL QUE ESTEM 
 				if($day==$diaActual)
 					echo "<td class='hoy'>$day</td>";
@@ -74,8 +71,7 @@
 				$day++;
 			}
 			// CORRESPON A LA NOVA COLUMNA JA QUE HEM ACABAT LA SETMANA
-			if($i%7==0)
-			{
+			if($i%7==0){
 				echo "</tr><tr>\n";
 			}
 		}
