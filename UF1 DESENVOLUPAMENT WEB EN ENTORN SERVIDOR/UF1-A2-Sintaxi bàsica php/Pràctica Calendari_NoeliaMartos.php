@@ -1,21 +1,10 @@
-<?php
-//DEFINIM ELS VALORS DEL MES/ANY/DIACTUAL
-$month=date("n");
-$year=date("Y");
-$diaActual=date("j");
-$diasetmana=date("w",mktime(0,0,0,$month,1,$year))+7;
-# Obtenemos el ultimo dia del mes
-$ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
- 
-$meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL",
-"AGOST", "SETEMBRE", "OCTUBRE", "NOVEMBRE", "DECEMBRE");
-?>
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<title>Calendari</title>
-	<meta charset="utf-8">
+	<meta charset="UFT-8">
+	<meta name="view" content="width=device-width, initial-scale=1.0">
+	<title>CALENDARI</title>
+
 	<style>
 		#calendari {
 			font-size:15px;
@@ -40,12 +29,23 @@ $meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL",
 			padding:3px 25px;
 			background-color:white;
 		}
-
-
 	</style>
 </head>
  
 <body>
+
+	<?php
+	//DEFINIM ELS VALORS DEL MES/ANY/DIACTUAL
+	$month=date("n");
+	$year=date("Y");
+	$diaActual=date("j");
+	$diasetmana=date("w",mktime(0,0,0,$month,1,$year))+7;
+	# ULTIM DIA DEL MES
+	$ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
+ 
+	$meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL", "AGOST", "SETEMBRE", "OCTUBRE", "NOVEMBRE", "DECEMBRE");
+	?>
+
 <table id="calendari">
 	<caption><?php echo $meses[$month]." ".$year?></caption>
 	<tr>
