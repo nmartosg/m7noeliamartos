@@ -36,17 +36,17 @@
 
 	<?php
 	//DEFINIM ELS VALORS DEL MES/ANY/DIACTUAL
-	$month=date("n");
-	$year=date("Y");
-	$diaActual=date("j");
-	$diasetmana=date("w",mktime(0,0,0,$month,1,$year))+7;
+	$mes=date("n");
+	$año=date("Y");
+	$hoy=date("j");
+	$diasetmana=date("w",mktime(0,0,0,$mes,1,$año))+7;
 	# ULTIM DIA DEL MES
-	$ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
+	$ultimdiames=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
 	$meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL", "AGOST", "SETEMBRE", "OCTUBRE", "NOVEMBRE", "DECEMBRE");
 	?>
 
 <table id="calendari">
-	<caption><?php echo $meses[$month]." ".$year?></caption>
+	<caption><?php echo $meses[$mes]." ".$año?></caption>
 	<tr>
 		<th>DILLUNS</th><th>DIMARTS</th><th>DIMECRES</th><th>DIJOUS</th>
 		<th>DIVENDRES</th><th>DISSABTE</th><th>DIUMENGE</th>
@@ -57,18 +57,18 @@
 		for($i=1;$i<=42;$i++){
 			if($i==$diasetmana){
 				// DIA EN QUE COMEÇA LA SETMANA
-				$day=1;
+				$dia=1;
 			}
 			if($i<$diasetmana || $i>=$ultimacelda){
 				echo "<td>&nbsp;</td>";
 			}
 			else{
 				// DIA ACTUAL EN EL QUE ESTEM 
-				if($day==$diaActual)
-					echo "<td class='hoy'>$day</td>";
+				if($dia==$hoy)
+					echo "<td class='hoy'>$dia</td>";
 				else
-					echo "<td>$day</td>";
-				$day++;
+					echo "<td>$dia</td>";
+				$dia++;
 			}
 			// CORRESPON A LA NOVA COLUMNA JA QUE HEM ACABAT LA SETMANA
 			if($i%7==0){
