@@ -3,8 +3,6 @@
 $month=date("n");
 $year=date("Y");
 $diaActual=date("j");
- 
-
 $diasetmana=date("w",mktime(0,0,0,$month,1,$year))+7;
 # Obtenemos el ultimo dia del mes
 $ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
@@ -12,38 +10,38 @@ $ultimdiames=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
 $meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL",
 "AGOST", "SETEMBRE", "OCTUBRE", "NOVEMBRE", "DECEMBRE");
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Calendario DAW2</title>
+	<title>Calendari</title>
 	<meta charset="utf-8">
 	<style>
 		#calendari {
-
-			font-size:40px;
+			font-size:15px;
+		}
+		#calendari .hoy {
+			background-color:#04F8CD;
 		}
 		#calendari caption {
-
 			text-align:center;
 			padding:5px 100px;
 			background-color: green;
-			color:black;
+			color:white;
 			font-weight:bold;
 		}
 		#calendari th {
 			background-color:black;
 			color:#fff;
-			width:40px;
+			width:1px;
 		}
 		#calendari td {
 			text-align:right;
 			padding:3px 25px;
 			background-color:white;
 		}
-		#calendari .hoy {
-			background-color:blue;
-		}
+
+
 	</style>
 </head>
  
@@ -51,10 +49,10 @@ $meses=array(1=>"GENER", "FEBRER", "MARÇ", "ABRIL", "MAIG", "JUNY", "JULIOL",
 <table id="calendari">
 	<caption><?php echo $meses[$month]." ".$year?></caption>
 	<tr>
-		<th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th>
-		<th>Vie</th><th>Sab</th><th>Dom</th>
+		<th>DILLUNS</th><th>DIMARTS</th><th>DIMECRES</th><th>DIJOUS</th>
+		<th>DIVENDRES</th><th>DISSABTE</th><th>DIUMENGE</th>
 	</tr>
-	<tr bgcolor="black">
+	<tr bgcolor="#000000">
 		<?php
 		$last_cell=$diasetmana+$ultimdiames;
 
