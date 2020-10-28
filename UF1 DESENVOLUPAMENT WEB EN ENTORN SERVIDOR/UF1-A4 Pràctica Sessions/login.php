@@ -47,11 +47,11 @@ if (!isset($_COOKIE['politica'])){
         <form method="post">
             <p> 
                 <label> Email </label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required><?=$errormail;?> 
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required><?if (isset($_SESSION["errormail"])){echo $_SESSION["errormail"];}?> 
             </p> 
             <p>
                 <label> Contrasenya </label>
-                <input type="password" name="contrasenya" placeholder="Contraseña"><?=$errorcontra;?> 
+                <input type="password" name="contrasenya" placeholder="Contraseña"><?if (isset($_SESSION["errorcontra"])){echo $_SESSION["errorcontra"];}?>
             </p>
             <p>
                 <label>
