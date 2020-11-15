@@ -1,0 +1,58 @@
+Categories:
+
+
+CREATE TABLE `categoria` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(20) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+categoria_producte:
+
+CREATE TABLE `categoria_producte` (
+  `producte_id` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+imatges:
+
+CREATE TABLE `imatges` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(20) COLLATE utf8_bin NOT NULL,
+  `ruta` varchar(200) COLLATE utf8_bin NOT NULL,
+  `producte_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+productes:
+
+
+CREATE TABLE `productes` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(11) COLLATE utf8_bin NOT NULL,
+  `preu` float NOT NULL,
+  `descripcio` text COLLATE utf8_bin NOT NULL,
+  `usuari_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+
+ALTER TABLE `categoria_producte`
+  ADD CONSTRAINT `fk_cate` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fl_prod` FOREIGN KEY (`producte_id`) REFERENCES `productes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE `imatges`
+  ADD CONSTRAINT `fk_producto` FOREIGN KEY (`producte_id`) REFERENCES `productes` (`id`);
+
+
+ALTER TABLE `productes`
+  ADD CONSTRAINT `fk_usuari_id` FOREIGN KEY (`usuari_id`) REFERENCES `usuaris` (`id`);
+
+
+
+ALTER TABLE `imagenes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
